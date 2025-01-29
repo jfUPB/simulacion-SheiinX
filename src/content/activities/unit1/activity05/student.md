@@ -20,4 +20,6 @@ function draw(){
 }
 ```
 
+![Sample Text](../../../../assets/something-gaussianrandom.png)
+
 Centrandonos directamente en el código, en la función draw estaremos controlando las dos variables de X y Y, asignandoles un número aleatorio con distribución normal, tomando el dato de la altura y el ancho de la pantalla y poniendolo en toda la mitad, de ahí obtiene un número grande desviación estandar y permite que los circulos se generen en un área grande, bajando el valor de la DA hará que los circulos se generen más cercanos los unos a los otros.
