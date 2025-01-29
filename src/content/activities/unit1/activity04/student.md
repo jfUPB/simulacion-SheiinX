@@ -7,6 +7,30 @@ Ya de parte de las no uniformes, tenemos la misma lista de posibles datos { 0, 1
 
 ### Código
 ``` js
+let walker;
+
+function setup() {
+  createCanvas(640, 240);
+  walker = new Walker();
+  background(255);
+}
+
+function draw() {
+  walker.step();
+  walker.show();
+}
+
+class Walker {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+  }
+
+  show() {
+    stroke(0);
+    point(this.x, this.y);
+  }
+
 step() {
     const choice = floor(randomGaussian(0,0.3));
     if (choice == 0) {
@@ -19,6 +43,9 @@ step() {
       this.y--;
     }
   }
+}
 ```
+
+![Output](../../../../assets/something-uniforme-derecha.png)
 
 Cambiando solo el random dentro valor de choice por randomGaussian(), de manera que pueda hacer la distribución no uniforme, ya de ahí utilizamos el 0 porque es el dato que estoy buscando obtener que es para la derecha, utilizando media 0 y una desviación estandar por debajo de 1 sirve para poder obtener este resultado en el que intentará irse para la derecha, pero como busca los demás datos entonces va intentando ir a la izquierda y por eso se mueve para arriba poco a poco.
