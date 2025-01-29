@@ -89,6 +89,8 @@ step() {
   }
 ```
 
+![Experimento 1](../../../../assets/something-experiment1.png)
+
 No era lo que esperaba ya que no conseguí ver nada, así que decidí cambiar un poco el código para que se vea más, y terminé eliminando las condiciones para moverlo arriba y que solo se moviera en diagonal
 
 ```js
@@ -109,5 +111,51 @@ step() {
     }
   }
 ```
+![Experimento 1](../../../../assets/something-experiment2.png)
 
 Con este termino coonsiguiendo ver algo interesante, con el poco tiempo que lo dejé, practicamente no consigue haber algún punto en el que haya dos puntos paralelos, todos son diagonales entre sí, y no sé como, pero tal vez sea por como funciona los pixeles, y se haga un efecto similar al alfil en ajedrez, se puede mover diagonalmente, pero nunca toca los puntos del color opuesto al que está parado. Y es interesante, ahí pude confirmar los pixeles y como más o menos funciona una pantalla con relación a tales para dibujar cosas, necesitando de los 8 movimientos para dibujar.
+
+```js
+let walker;
+
+function setup() {
+  createCanvas(640, 240);
+  walker = new Walker();
+  background(255);
+}
+
+function draw() {
+  walker.step();
+  walker.show();
+}
+
+class Walker {
+  constructor() {
+    this.x = width / 2;
+    this.y = height / 2;
+  }
+
+  show() {
+    stroke(0);
+    point(this.x, this.y);
+  }
+
+step() {
+    const choice = floor(random(4));
+    if (choice == 0) {
+      this.x++;
+      this.y++;
+    } else if (choice == 1){
+      this.x--;
+      this.y++;
+    } else if (choice == 2) {
+      this.x--;
+      this.y--;
+    } else {
+      this.x++;
+      this.y--;
+    }
+  }
+}
+```
+Código final
