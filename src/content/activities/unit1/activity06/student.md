@@ -3,6 +3,8 @@ Desde su concepto, es practicamente un paseo aleatorio en el cual hay una probab
 
 Este uso es bueno para poder tener un sistema sencillo dentro de un juego para que movimientos de npcs o critters se vea más variado, que no solo se vaya como centrando en un punto sino que puedan moverse hasta otra zona e interactue con esa zona.
 
+![Levy Flight](../../../../assets/something-levyended.png)
+
 ```js
 let walker;
 
@@ -53,6 +55,9 @@ step() {
 
 ### Extra
 Dejaré este pequeño código acá antes de hacer que funcionará el levy flight, ya que me pareció curioso como se pueso a dibujar las líneas alrededor del centro
+
+![Thing](../../../../assets/something-levytry.png)
+
 ```js
 let walker;
 
