@@ -5,6 +5,8 @@
 
 Como nota, no tengo idea por qué pasa que conforme se generan circulos, desaparecen, generando el efecto que se da, pero al menos pude ver como las variaciones se generan conforme pasa el tiempo.
 
+![Perlin Noise](../../../../assets/something-perlinnoise.png)
+
 ```js
 let t = 0.0;
 
