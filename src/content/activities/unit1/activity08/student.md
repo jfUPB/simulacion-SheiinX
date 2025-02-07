@@ -3,3 +3,5 @@ Pretendo directamente utilizar el ruido de Perlin para el manejo de tamaños de 
 De ahí puedo integrar los 3 conceptos de aleaatoriedad, de distribución de probabilidad y tambien pongo en juego visualmente el ruido de Perlin para generar variaciones de lo que estoy recibiendo de feedback visual.
 
 Referencia follow https://www.youtube.com/watch?v=4zAN5QBwGt8
+
+![Brush reference](../../../../assets/something-reference1.jpg)
