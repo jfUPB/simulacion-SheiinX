@@ -43,4 +43,6 @@ Para javascript, las variables o tipos de datos que son considerados "Primitivos
 Los tipos de datos "No primitivos" como los arreglos, las funciones y los objetos, serán los que pueden cambiar los valores del espacio de memoria asignado, y ese paso es por referencia.
 
 ### ¿Qué aprendí?
-Volví a acordar como funcionaba la ram en un pc
+Volví a acordar como funcionaba la ram en un pc y el uso de memoria.
+
+![Sample Text](../../../../assets/cat-crying.jpg)
