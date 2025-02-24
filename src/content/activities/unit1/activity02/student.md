@@ -1,0 +1,2 @@
+### Intereses
+Con relación a esa conexión con el arte generativo, hay directamente una conexión en el sentido de que siendo hecho por desarrolladores y programadores, esto se vuelve en una herramienta, ya sea el producto que me entregan o la arquitectura debajo del producto del arte generativo que son algorítmos que puede hacer uso en otros ámbitos, siempre y cuando en lo que esté trabajando requiera de un estilo de movimiento aleatorio y que se pueda mostrar dentro de un programa y se visualice en la pantalla del dispositivo.
