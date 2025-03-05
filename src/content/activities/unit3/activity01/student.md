@@ -11,6 +11,17 @@
 * La resistencia al movimiento de un objeto que se mueve sobre una superficie, o en general la resistencia al movimiento
 * Fuerza aplicada sobre un objeto para moverlo
 ### Interpretación visual
+* Gravedad
+
+![Experimento 1](../../../../assets/something-gravity.png)
+
+* Elástica y gravedad
+
+![Experimento 1](../../../../assets/something-resorte.png)
+
+* Empuje y Fricción
+
+![Experimento 1](../../../../assets/something-force.webp)
 
 ### Diseño
 La gravedad y empuje en muchos términos en diseño y experiencias, siempre se ha hecho para simulaciones y poder imitar la realidad para poder mostrar movimiento, lo cual ahí es muy útil.
