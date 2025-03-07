@@ -1,0 +1,4 @@
+### Aplicaciones
+* Como ya mostré en el anterior ejercicio, para la simjulación de físicas y similares dentro de videojuegos y experiencias está la utilización de vectores, el concepto más básico de movimiento en estos motores y proyectos, ya que al menos con ello se puede generar la interactividad para un videojuego que uno espera
+* Otra que es más centrado en la programación es directamente el cálculo de un punto a otro, ya que hay muchos mapas tan verticales y horizontales que algunos sistemas para ubicar objetos es más fácil tener un programa que pueda calcular los puntos específicos en esas zonas en los ejes X, Y y Z; un ejemplo de ello puede ser la ubicación de los puntos a donde hay que ir de un mapa en un videojuego
+* También los vectores sirven para escalados, posicionamiento y otras cosas dentro de los objetos en los juegos o experiencias, digamos el cubo básico de blender para poder cambiarle sus propiedades
