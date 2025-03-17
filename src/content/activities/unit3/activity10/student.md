@@ -283,3 +283,111 @@ Bueno, sigo sin saber por qué está tan robusto el movimiento pero con este hic
 Ahora sí con la explicación, un nuevo objeto que es el líquido, que contiene dos métodos los cuales son contain (Que recibe el objeto y detecta si está dentro de los límites retornados o no) y calculateDrag que permite calcular la función de la resistencia de un líquido. Ya en el draw se hace la suma de las fuerzas y ya hay una resistencia del líquido.
 
 https://editor.p5js.org/SheiinX/sketches/3IFt6f6U2
+
+### Ahora sí Atracción Gravitacional
+```js
+let user = [];
+let attractor;
+
+let G;
+
+function setup() {
+  createCanvas(600, 540);
+  
+  for (let i = 0; i < 10; i++){
+    user[i] = new CircleObject();
+  }
+  
+  attractor = new Attractor();
+}
+
+function draw() {
+  background(255, 50);
+  
+  attractor.show();
+  
+  for (let i = 0; i < user.length; i++){
+    let force = attractor.attract(user[i]);
+    
+    user[i].applyForce(force);
+    user[i].update();
+    user[i].show();
+  }
+  //user.bounceEdges();
+}
+
+class CircleObject{
+  constructor() {
+    this.radius = 50;
+    this.mass = 10;
+    this.position = createVector(random(width), random(height));
+    this.velocity = createVector(0, 0);
+    
+    this.acceleration = createVector(0, 0);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+  }
+
+  show() {
+    stroke(0);
+    strokeWeight(2);
+    fill(127,127);
+    circle(this.position.x, this.position.y, this.radius);
+  }
+  
+  applyForce(force){
+    let f = p5.Vector.div(force, this.mass);
+    this.acceleration.add(f);
+  }
+  
+  contactEdge() {
+    return (this.position.y > height - this.radius - 1);
+  }
+  
+  bounceEdges() {
+    let bounce = -0.9;
+    if (this.position.x > width - this.radius) {
+      this.position.x = width - this.radius;
+      this.velocity.x *= bounce;
+    } else if (this.position.x < this.radius) {
+      this.position.x = this.radius;
+      this.velocity.x *= bounce;
+    }
+    if (this.position.y > height - this.radius) {
+      this.position.y = height - this.radius;
+      this.velocity.y *= bounce;
+    }
+  }
+}
+
+class Attractor {
+  constructor() {
+    this.position = createVector(width / 2, height / 2);
+    this.mass = 20;
+  }
+
+  attract(user) {
+    let force = p5.Vector.sub(this.position, user.position);
+    let distance = force.mag();
+    distance = constrain(distance, 5, 25);
+
+    let strength = (G * this.mass * user.mass) / (distance * distance);
+    force.setMag(strength);
+    return force;
+  }
+
+  show() {
+    stroke(0);
+    fill(175, 200);
+    circle(this.position.x, this.position.y, this.mass * 2);
+  }
+}
+```
+
+Aplicando los temas presentados en el libro, se tiene una clase Attractor(), la cual contiene las funciones para poder calcular la atracción gravitatoria en un punto recibiendo de la clase que se pase al llamar la función, de esta manera basandose en la función Fg=(Gm1*m2/r^2)*r. Ya de ahí genéro un arreglo de objetos user y que directamente estos los voy a pasar para que empiecen a orbitar alrededor del attractor en el programa.
+
+https://editor.p5js.org/SheiinX/sketches/ZUOSZGqtd
