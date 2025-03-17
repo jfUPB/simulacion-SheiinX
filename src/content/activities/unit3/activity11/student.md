@@ -131,3 +131,7 @@ Igual que en el texto guía para los n-cuerpos, más que tener varios elementos 
 Aquí no me centré solo en los objetos que orbitan (bodies) sino que también me centré en los soles estáticos (suns), de manera que los objetos que orbitan reaccionarán ante los soles, y aunque hay varios for en el draw, sigue funcionando de manera que aplica a todos los objetos en todas las instancias (No creo que sea lo más optimo pero funciona en espacios pequeños como este).
 
 https://editor.p5js.org/SheiinX/sketches/E8dAM9tTD
+
+![Atraccion1](../../../../assets/something-attraction1.png)
+
+![Atraccion2](../../../../assets/something-attraction2.png)
