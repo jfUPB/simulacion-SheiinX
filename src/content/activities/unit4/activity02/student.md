@@ -9,3 +9,5 @@ Lo que hace el rectMode(CENTER) es cambiar la zona donde se dibujará lo que esp
 
 ### Relación
 Gracias a que el vector de velocidad es la que está controlando el movimiento en el código (Sacando la información del mouse), utilizar .heading() permite sacar el ángulo del vector con respecto al origen, lo cual permite hacer todo el proceso del código para rotar el rectángulo.
+
+![Dibujo](../../../../assets/something-draw-vector.png)
