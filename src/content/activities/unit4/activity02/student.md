@@ -8,4 +8,4 @@ push() y pop() son funciones que funcionan en conjunto, con push() al inicio y p
 Lo que hace el rectMode(CENTER) es cambiar la zona donde se dibujará lo que especifique en el código en cierta posición ya del código, en este caso pasa el sistema para dibujar justo en el centro del canvas.
 
 ### Relación
-x
+Gracias a que el vector de velocidad es la que está controlando el movimiento en el código (Sacando la información del mouse), utilizar .heading() permite sacar el ángulo del vector con respecto al origen, lo cual permite hacer todo el proceso del código para rotar el rectángulo.
