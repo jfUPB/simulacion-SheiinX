@@ -24,4 +24,4 @@ function draw() {
 
 https://editor.p5js.org/SheiinX/sketches/EqjsTlbbg
 
-![Simple Simulation](../../../../assets/something-simplesin.png)
+![Simple Simulation](/something-sin2.png)
