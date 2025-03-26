@@ -28,7 +28,7 @@ function draw(){
 
 Primera alternativa, pasar la función para draw y bajarle los frames para poder ver el movimiento en ola del canva
 
-![First Sin](../../../../assets/)
+![First Sin](../../../../assets/something-firstsin.png)
 
 ```js
 let angle = 0;
@@ -65,4 +65,4 @@ function draw(){
 
 Segunda manera, utilizando un ángulo inicial para controlar el movimiento y que este no se mueva en x pero se quede fijo y solo se mueva en y
 
-![Second Sin](../../../../assets/)
+![Second Sin](../../../../assets/something-secondsin.png)
