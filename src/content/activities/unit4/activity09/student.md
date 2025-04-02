@@ -41,7 +41,7 @@ function draw() {
   // Connect the bob to the spring (this calculates the force)
   spring.connect(bob);
   spring2.connect(bob2);
-  //spring2.connect(bob);
+  spring2.connect(bob);
 
   // Constrain spring distance between min and max
   spring.constrainLength(bob, 30, 200);
