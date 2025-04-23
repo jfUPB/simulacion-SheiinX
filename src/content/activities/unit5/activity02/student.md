@@ -270,3 +270,199 @@ class Emitter {
 ```
 
 https://editor.p5js.org/SheiinX/sketches/dkHBmwks_
+
+### Ejemplo 4.5
+Con este ya pasamos a la unidad de vectores, esta vez con el fin de cambiar los comportamientos del sistema, para esta parte se utilizará la función de lerp() proporcionada por p5.js, acá admito que no recuerdo mucho como es el funcionamiento de lerp, así que leyendo de nuevo, es la interpolación entre dos vectores, entonces la idea será hacer que estos en objetivos aleatorios, dispare las particulas y lasponga en diferentes puntos dependiendo de esa interpolación. Adicionalmente de que se dé colores diferentes para las particulas.
+
+Los cambios serían relativamente sencillos, donde se irían cambiando las clases Particle y Confetti, donde en ambos se aplicaría el lerp para las posiciones (Como Confetti ya es parte de un sistema de inheritance con padre el Particle, la posición y el lerp se manejaría más desde el Particle), y lerpColor para los colores de las particulas que se generen.
+
+```js
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.target = createVector(random(width), random(height));
+    this.lerpAmt = 0;
+
+    this.startColor = color(255, 150, 0);
+    this.endColor = color(0, 150, 255);
+
+    this.lifespan = 255.0;
+  }
+
+  run() {
+    this.update();
+    this.show();
+  }
+
+  update() {
+    this.position = p5.Vector.lerp(this.position, this.target, 0.05); //Interpolacíon
+    this.lerpAmt += 0.01;
+    this.lerpAmt = constrain(this.lerpAmt, 0, 1);
+    this.lifespan -= 2;
+  }
+
+  show() {
+    let col = lerpColor(this.startColor, this.endColor, this.lerpAmt); //Cambio del color
+    col.setAlpha(this.lifespan);
+    stroke(col);
+    strokeWeight(2);
+    fill(col);
+    circle(this.position.x, this.position.y, 8);
+  }
+
+  isDead() {
+    return this.lifespan < 0.0;
+  }
+}
+```
+```js
+class Confetti extends Particle {
+  show() {
+    let angle = map(this.position.x, 0, width, 0, TWO_PI * 2);
+    let col = lerpColor(this.startColor, this.endColor, this.lerpAmt); //Cambio del color
+    col.setAlpha(this.lifespan);
+
+    rectMode(CENTER);
+    fill(col);
+    stroke(col);
+    strokeWeight(2);
+    push();
+    translate(this.position.x, this.position.y);
+    rotate(angle);
+    square(0, 0, 12);
+    pop();
+  }
+}
+```
+
+#### Código y link
+
+```js
+let emitter;
+
+function setup() {
+  createCanvas(640, 240);
+  emitter = new Emitter(width / 2, 20);
+}
+
+function draw() {
+  background(255);
+  emitter.addParticle();
+  emitter.run();
+}
+
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.target = createVector(random(width), random(height)); // Destino aleatorio
+    this.lerpAmt = 0;
+
+    this.startColor = color(255, 150, 0);
+    this.endColor = color(0, 150, 255);
+
+    this.lifespan = 255.0;
+  }
+
+  run() {
+    this.update();
+    this.show();
+  }
+
+  update() {
+    this.position = p5.Vector.lerp(this.position, this.target, 0.05);
+    this.lerpAmt += 0.01;
+    this.lerpAmt = constrain(this.lerpAmt, 0, 1);
+    this.lifespan -= 2;
+  }
+
+  show() {
+    let col = lerpColor(this.startColor, this.endColor, this.lerpAmt);
+    col.setAlpha(this.lifespan);
+    stroke(col);
+    strokeWeight(2);
+    fill(col);
+    circle(this.position.x, this.position.y, 8);
+  }
+
+  isDead() {
+    return this.lifespan < 0.0;
+  }
+}
+
+class LerpParticle extends Particle {
+  constructor(x, y) {
+    super(x, y);
+    this.startColor = color(255, 0, 0);
+    this.endColor = color(0, 0, 255);
+    this.target = createVector(random(width), random(height));
+    this.lerpAmt = 0;
+  }
+
+  update() {
+    this.position = p5.Vector.lerp(this.position, this.target, 0.05);
+    
+    this.lerpAmt += 0.01;
+    this.lerpAmt = constrain(this.lerpAmt, 0, 1);
+    
+    this.lifespan -= 2;
+  }
+
+  show() {
+    let col = lerpColor(this.startColor, this.endColor, this.lerpAmt);
+    col.setAlpha(this.lifespan);
+
+    fill(col);
+    stroke(col);
+    strokeWeight(2);
+    ellipse(this.position.x, this.position.y, 10, 10);
+  }
+}
+
+class Confetti extends Particle {
+  show() {
+    let angle = map(this.position.x, 0, width, 0, TWO_PI * 2);
+    let col = lerpColor(this.startColor, this.endColor, this.lerpAmt);
+    col.setAlpha(this.lifespan);
+
+    rectMode(CENTER);
+    fill(col);
+    stroke(col);
+    strokeWeight(2);
+    push();
+    translate(this.position.x, this.position.y);
+    rotate(angle);
+    square(0, 0, 12);
+    pop();
+  }
+}
+
+class Emitter {
+  constructor(x, y) {
+    this.origin = createVector(x, y);
+    this.particles = [];
+  }
+
+  addParticle() {
+    let r = random(1);
+    if (r < 0.5) {
+      this.particles.push(new Particle(this.origin.x, this.origin.y));
+    } else if (r < 0.66) {
+      this.particles.push(new Confetti(this.origin.x, this.origin.y));
+    } else {
+      this.particles.push(new LerpParticle(this.origin.x, this.origin.y));
+    }
+  }
+
+  run() {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      let p = this.particles[i];
+      p.run();
+      if (p.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+}
+```
+
+https://editor.p5js.org/SheiinX/sketches/0M083OpVI
