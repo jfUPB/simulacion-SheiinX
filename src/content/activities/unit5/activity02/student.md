@@ -466,3 +466,152 @@ class Emitter {
 ```
 
 https://editor.p5js.org/SheiinX/sketches/0M083OpVI
+
+### Ejemplo 4.6
+Particulas aplicandole fuerzas, ya en sí se estaba aplicando la gravedad sobre las particulas, pero esta vez aplicandole otro tipo de fuerza natural se le aplicará una fuerza del resorte, y para ello, aunque un poco ortodoxo en la forma y entenderlo, se aplicará otra función dentro del Emitter la cual se pondrá a aplicar a cada particula tal fuerza cuando se aplique la gravedad.
+
+```js
+class Emitter {
+  constructor(x, y) {
+    this.origin = createVector(x, y);
+    this.particles = [];
+    this.restLength = 100;
+    this.k = 0.05;
+  }
+
+  addParticle() {
+    this.particles.push(new Particle(this.origin.x, this.origin.y));
+  }
+
+  applyForce(force) {
+    for (let particle of this.particles) {
+      particle.applyForce(force);
+      this.applySpringForce(particle);
+    }
+  }
+
+  applySpringForce(particle) {
+    let dir = p5.Vector.sub(particle.position, this.origin);
+    let currentLength = dir.mag();
+    let stretch = currentLength - this.restLength;
+
+    dir.normalize();
+    dir.mult(-1 * this.k * stretch);
+
+    particle.applyForce(dir);
+  }
+
+  run() {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const particle = this.particles[i];
+      particle.run();
+      if (particle.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+}
+```
+
+#### Código y link
+
+```js
+let emitter;
+
+function setup() {
+  createCanvas(680, 480);
+  emitter = new Emitter(width / 2, height/2);
+}
+
+function draw() {
+  background(255,30);
+
+  let gravity = createVector(0, 0.1);
+  emitter.applyForce(gravity);
+
+  emitter.addParticle();
+  emitter.run();
+}
+
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.acceleration = createVector(0, 0.0);
+    this.velocity = createVector(random(-0.1, 0.1), random(-0.1, 0.1));
+    this.lifespan = 255.0;
+    this.mass = 1;
+  }
+
+  run() {
+    this.update();
+    this.show();
+  }
+
+  applyForce(force) {
+    let f = force.copy();
+    f.div(this.mass);
+    this.acceleration.add(f);
+  }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.acceleration.mult(0);
+    this.lifespan -= 2.0;
+  }
+
+  show() {
+    stroke(0, this.lifespan);
+    strokeWeight(2);
+    fill(127, this.lifespan);
+    circle(this.position.x, this.position.y, 8);
+  }
+
+  isDead() {
+    return this.lifespan < 0.0;
+  }
+}
+
+class Emitter {
+  constructor(x, y) {
+    this.origin = createVector(x, y);
+    this.particles = [];
+    this.restLength = 100;
+    this.k = 0.05;
+  }
+
+  addParticle() {
+    this.particles.push(new Particle(this.origin.x, this.origin.y));
+  }
+
+  applyForce(force) {
+    for (let particle of this.particles) {
+      particle.applyForce(force);
+      this.applySpringForce(particle);
+    }
+  }
+
+  applySpringForce(particle) {
+    let dir = p5.Vector.sub(particle.position, this.origin);
+    let currentLength = dir.mag();
+    let stretch = currentLength - this.restLength;
+
+    dir.normalize();
+    dir.mult(-1 * this.k * stretch);
+
+    particle.applyForce(dir);
+  }
+
+  run() {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const particle = this.particles[i];
+      particle.run();
+      if (particle.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+}
+```
+
+https://editor.p5js.org/SheiinX/sketches/j97lsZCDB
