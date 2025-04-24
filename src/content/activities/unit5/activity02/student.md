@@ -615,3 +615,160 @@ class Emitter {
 ```
 
 https://editor.p5js.org/SheiinX/sketches/j97lsZCDB
+
+### Ejmemplo 4.7
+De este intenté meterle una aplicación de atracción gravitatoria antes de que fueran lanzadas, utilizando funciones trigonometricas dentro del código, pero un poco complicado cuando todo el rato está intentando alejar las particulas.
+
+Igualmente se consiguió hacer un efecto parecido, lo cual hace que cuando lleguen al objeto repeledor, las particulas no serían repelidas de una vez, sino hasta que lleguen hasta abajo. Aplicandoselo a la clase repeller donde se cambiará un poco la lógica de la función repel para que se genere una tangente aplicando las funciones de sin y cos.
+
+```js
+if (distance < influenceRadius) {
+      let angle = atan2(dir.y, dir.x);
+
+      let tangent = createVector(cos(angle), sin(angle));
+
+      let strength = map(distance, 0, influenceRadius, 0.5, 0);
+      tangent.mult(strength * 4);
+
+      return tangent;
+    }
+```
+
+#### Código y link
+
+```js
+let emitter;
+
+let repeller;
+
+function setup() {
+  createCanvas(640 , 640);
+  emitter = new Emitter(width / 2, 60);
+  repeller = new Repeller(width / 2, 250);
+}
+
+function draw() {
+  background(255);
+  emitter.addParticle();
+  let gravity = createVector(0, 0.1);
+  emitter.applyForce(gravity);
+  emitter.applyRepeller(repeller);
+  emitter.run();
+
+  repeller.show();
+}
+
+class Particle {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.velocity = createVector(random(-1, 1), random(-1, 0));
+    this.acceleration = createVector(0, 0);
+    this.lifespan = 255.0;
+  }
+
+  run() {
+    this.update();
+    this.show();
+  }
+
+  applyForce(f) {
+    this.acceleration.add(f);
+  }
+
+  // Method to update position
+  update() {
+    this.velocity.add(this.acceleration);
+    this.position.add(this.velocity);
+    this.lifespan -= 2;
+    this.acceleration.mult(0);
+  }
+
+  // Method to display
+  show() {
+    stroke(0, this.lifespan);
+    strokeWeight(2);
+    fill(127, this.lifespan);
+    circle(this.position.x, this.position.y, 8);
+  }
+
+  // Is the particle still useful?
+  isDead() {
+    return this.lifespan < 0.0;
+  }
+}
+
+class Emitter {
+
+  constructor(x, y) {
+    this.origin = createVector(x, y);
+    this.particles = [];
+  }
+
+  addParticle() {
+    this.particles.push(new Particle(this.origin.x, this.origin.y));
+  }
+
+  applyForce(force) {
+    for (let particle of this.particles) {
+      particle.applyForce(force);
+    }
+  }
+
+  applyRepeller(repeller) {
+    for (let particle of this.particles) {
+      let force = repeller.repel(particle);
+      particle.applyForce(force);
+    }
+  }
+
+  run() {
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const particle = this.particles[i];
+      particle.run();
+      if (particle.isDead()) {
+        this.particles.splice(i, 1);
+      }
+    }
+  }
+}
+
+class Repeller {
+  constructor(x, y) {
+    this.position = createVector(x, y);
+    this.power = 200;
+  }
+
+  show() {
+    stroke(0);
+    strokeWeight(2);
+    fill(127);
+    circle(this.position.x, this.position.y, 32);
+
+    // Zona de influencia visual
+    noFill();
+    stroke(0, 30);
+    ellipse(this.position.x, this.position.y, 120);
+  }
+
+  repel(particle) {
+    let dir = p5.Vector.sub(this.position, particle.position);
+    let distance = dir.mag();
+    let influenceRadius = 60;
+
+    if (distance < influenceRadius) {
+      let angle = atan2(dir.y, dir.x);
+
+      let tangent = createVector(cos(angle), sin(angle));
+
+      let strength = map(distance, 0, influenceRadius, 0.5, 0);
+      tangent.mult(strength * 4);
+
+      return tangent;
+    }
+
+    return createVector(0, 0);
+  }
+}
+```
+
+https://editor.p5js.org/SheiinX/sketches/97Kj6viu8
