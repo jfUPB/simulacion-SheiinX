@@ -291,3 +291,7 @@ Emitter.prototype.applyExplosion = function(centered, timeOffset = 0) {
   }
 }
 ```
+
+![S1](../../../../assets/something-unit5-1.png)
+![S2](../../../../assets/something-unit5-2.png)
+![S3](../../../../assets/something-unit5-3.png)
