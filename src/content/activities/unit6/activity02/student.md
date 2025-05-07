@@ -73,3 +73,27 @@ follow(flow) {
     this.applyForce(steer);
   }
 ```
+4. Experimentación
+
+Cambiando las variables de noise por otras funciones para la aleatoriedad, terminé utilizando el más básico, el random para que no haya un flujo controlado dentro del sistema
+
+```js
+let angle = random(TWO_PI);
+```
+
+Además de también utilizando los sin y cos para tener un movimiento más controlado pero que no genera diferentes flujos cada vez que se da un clic
+
+```js
+let angle = sin(xoff) * cos(yoff) * TWO_PI;
+```
+---
+También tomé para manejar los valores de la velocidad máxima y la fuerza máxima justo en el sketch.js, cambiandole el random y manejando manualmente los valores, y vi que en la fuerza máxima no hay mucha diferencia, solo en la aceleración, pero cuando cambio a valores muy grandes, los objetos terminan  ignorando el flujo y se quedán moviendo en una dirección fija todo el rato
+
+```js
+for (let i = 0; i < 120; i++) {
+    vehicles.push(
+      new Vehicle(random(width), random(height), 100, 0.1)
+    );
+  }
+```
+
