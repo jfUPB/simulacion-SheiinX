@@ -86,6 +86,8 @@ Además de también utilizando los sin y cos para tener un movimiento más contr
 ```js
 let angle = sin(xoff) * cos(yoff) * TWO_PI;
 ```
+
+![E1](../../../../assets/something-experiment-flow.png)
 ---
 También tomé para manejar los valores de la velocidad máxima y la fuerza máxima justo en el sketch.js, cambiandole el random y manejando manualmente los valores, y vi que en la fuerza máxima no hay mucha diferencia, solo en la aceleración, pero cuando cambio a valores muy grandes, los objetos terminan  ignorando el flujo y se quedán moviendo en una dirección fija todo el rato
 
@@ -97,3 +99,4 @@ for (let i = 0; i < 120; i++) {
   }
 ```
 
+![E2](../../../../assets/something-experiment-flow1.png)
