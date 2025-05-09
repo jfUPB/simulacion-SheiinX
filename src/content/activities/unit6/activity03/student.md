@@ -142,14 +142,21 @@ cohere(boids) {
 ```
 Primer cambio de poner la cohesión a 0, simplemente cambiando el return a 0 hace que ya no empiecen yendo a diferentes puntos cada vez que se empiece el código, sino que van siempre a un solo lado, y eventualmente los elementos se separan más hasta que solo están alineados en el movimiento.
 
+![E21](../../../../assets/something-esta-melo.png)
+
 ```js
 let desiredSeparation = 200;
 ```
 
 Segundo para revisar la separación, solo cambiando esta variable en su función hizo que se separarán lo suficiente para que el movimiento fuera un poco caótico, todos los elementos se separan hasta el punto que no consiguen alinearse bien y siempren intentan juntarse pero se terminan separando, y vuelven a perder el rumbo.
 
+![E22](../../../../assets/something-esta-melo2.png)
+
 ```js
 if (d > 0 && d > desiredSeparation)
 ```
 
 Cómo último cambio, fue el rango de percepción para que funcione cada regla del flocking, aquí es un poco redundante como está escrito y se salta la variable de desiredSeparation, pero lo que hace practicamente al hacer este cambio es una separación completa pero todos los elementos siguen técnicamente buscando alinearse al movimiento de los demás, siguiendo las mismas rutas.  Y si uno solo cambia dos o una, se puede ver los resultados, hablando de cohesión como la única sin cambiar la lógica, los elementos cuando llegan a un borde terminan perdiendo el rumbo y no se mueven, y no es hasta que los demás llegan con esas que empiezan a moverse de nuevo.
+
+![E23](../../../../assets/something-esta-melo3.png)
+![E24](../../../../assets/something-esta-melo4.png)
