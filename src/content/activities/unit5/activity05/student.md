@@ -1,0 +1,8 @@
+### Autoevaluación
+1. Yo ya en sí entendía al menos el concepto de herencia, y ya lo entendía y sabía que permitía un montón de posibilidades, la cosa es que no lo había utilizado tanto, y acá me ha permitido retoalimentarlo y poder pensar en varias alternativas que pude haber aplicado antes, pero que nunca lo pensé en primera instancia. De manera que mi respuesta es, no, porque no conseguía dimensionar bien el uso de tal.
+2. El uso de las particulas con relación a su creación y destrucción, ya conocía en sí el uso de particulas y ya conseguía dimensionar como en código funcionaban para sus tiempos en pantalla, lo cual se me hizo fácil entender.
+3. Más allá de los temas presentados, me parecío más dificil la aplicación de temas especificos de las anteriores unidades sobre este, pero más que todo en como me daban el código base, y en ese código base ya se utilizaban los conceptos anteriores, lo cual me pareció más complicado de lo normal intentar ir a ver cosas más especificas y aplicarlas cuando ya estaban aplicadas.
+4. La parte del polimorfismo, para intentar mejorar la comprensión de este.
+5. Sí, a la final las particulas y polimorfismo y lo resto, sirve para funcionalidades dentro de los proyectos, y reutilización de código más optimizado.
+6. Particulas en generales, ya que es directamente muchas cosas visuales que permiten mejorar la experiencia de un usuario visualmente. Y que también me permite aprender optimización de código.
+7. Todo practicamente al desarrollo de videojuegos y experiencias, esto es muy basado en código y en optimización, entonces todo esto me sirve para mejorar el uso de código en los proyectos.
