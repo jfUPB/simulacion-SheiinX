@@ -206,6 +206,8 @@ https://editor.p5js.org/SheiinX/sketches/ErL2bvIxF
 
 En cada código, o con space o con las flechas del teclado empiezan a girar las letras.
 
+![Matter1](../../../../assets/something-matter3.png)
+
 ### 4. Formación de letras
 
 La forma más fácil que he tenido para esto es, en vez de formar todas las letras a base de esos sistemas, simplemente utilizar los sistemas para que por debajo se tenga los objetos físicos sin que se muestren y por último se tenga gracias a funciones como el Event para generar las letras después de render
