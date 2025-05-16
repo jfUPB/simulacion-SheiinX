@@ -1,0 +1,2 @@
+### Desafíos
+A diferencia de las anteriores unidades, hacer simulaciones de fenómenos físicos en código considera un reto considerable debido a que hay veces que la lógica que uno presenta en el código, se puede ver afectada por una u otra línea y tales pueden cambiar como funciona por completo los sistemas internos, lo cual termina haciendo que se pueda aportar una diferente solución al mismo problema sin que se vea muy diferente pero con el reto de que no puede ser lo más optimo si se quiere agregar nuevas cosas que funcionen en sintonía con ese sistema antes propuesto.

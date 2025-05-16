@@ -1,0 +1,4 @@
+### Entretenimiento digital
+Ya sea un juego, una experiencia o una animación, los conceptos de físicas aplicadas sirven para poder hacer una ilusión de que el mundo que uno está construyendo es real en cierta medida, lo cual hace que lo que podamos ver lo podamos relacionar con lo que vivimos día a día en la vida real, a la final estos proyectos terminan siendo basados en la misma realidad y utilizamos conceptos físicos, químicos, etc., para poder mostrar esos mundos de manera efectiva y que las personas puedan entender.
+
+Ejemplos especificos de esto son los sistemas de físicas integrados (O por integración) en motores como Unity, Unreal, o Havok para poder gener movimiento dentro de lo que uno programe en esos moteres gráficos o de físicas. Y ejemplo más aplicado es en los juegos donde en todos lados se ven la ilusión de movimiento por parte de lospixeles del mundo como en el Super Mario Bros original en gravedad,

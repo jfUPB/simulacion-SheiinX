@@ -1,0 +1,4 @@
+### Propuesta
+Utilizando un sistema de realidad mixta para el entorno de la arquitectura y la construcción.
+
+Utilizando un espacio específico y unas gafas de VR, poder hacer que las personas se muevan dentro de ese entorno, y con un control puedan ir agregando, quitando o cambiando cosas de ese mismo entorno, como muros (Si uno no quiere un muro, que en la simulación pueda quitarlo y ver como queda) o decoraciones (Como ir poniendo mesas o posters o tapetes, entre otras cosas). De esta manera se puede tener una herramienta para poder visualizar por ejemplo un apartamento, y poder ir viendo como los posibles y futuros propietarios vayan a interactuar con el entorno, de manera que permita tener una idea a los diseñadores de como pueden hacer cambios posibles o necesarios para mejorar el producto final.

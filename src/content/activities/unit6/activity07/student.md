@@ -1,0 +1,6 @@
+1. Fue claro el objetivo de la unidad, siendo más directa en la aplicación que las demás.
+2. Los referentes te dan una idea, pero hasta que no ves las otras formas de aplicación es complicado entender bien cual es el objetivo de como te muestran estos referentes artisticos (Sobre todo cuando estos están pensados para verse abstractos). Y con el entendimiento, creo que es un poco agresivo la forma de presentación y actividad, lo cual a uno lo abruma cuando entra en la actividad y empieza a hacer. Igual que en la anterior recomiendo primero revisar los conceptos y luego mirar más la práctica.
+3. No sé si lo conseguí, a la final cuando uno habla de algo inesperado, es como ser creativo con lo que uno va a trabajar o incluso intentar ser inovador, lo cual preferiría una forma de decirlo diferente, así la actividad no sería complicada para pensar y aplicar.
+4. Son suficientes los recursos entregados por el libro guía, pero igual, prefiero saber donde estoy buscando la información que necesito para mi aprendizaje.
+5. Están bien, igual que la anterior y de cierta medida, está bien.
+6. Tener una parte donde se explique más objetivamente los conceptos y ya de eso ir a los códigos y su entendimiento.
